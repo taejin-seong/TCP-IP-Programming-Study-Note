@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    /* 서버 프로그램의 구현과정에서 제일 먼저 해야 할일이 소켓의 생성 */
+/* 서버 프로그램의 구현과정에서 제일 먼저 해야 할일이 소켓의 생성 */
     serv_sock = socket(PF_INET, SOCK_STREAM, 0); // 소켓을 생성, 단 이 때 생성되는 소켓은 아직 서버 소켓이라 부르기 이른 상태.
     if (serv_sock == -1)
     {
