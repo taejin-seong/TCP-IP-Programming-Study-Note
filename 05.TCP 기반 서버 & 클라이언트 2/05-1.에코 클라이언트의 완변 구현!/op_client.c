@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     fputs("Operator: ", stdout); 
     scanf("%c", &opmsg[opnd_cnt+OPSZ+1]); // 연산자 정보를 입력 받아서 opmsg배열에 저장.
     write(sock, opmsg, opnd_cnt*OPSZ+2); // write 함수호출을 통해 opmsg에 저장되어 있는 연산과 관련된 정보를 한번에 전송 (TCP는 데이터의 경계가 존재X)
-    read(sock, (char*)&result, RLT_SIZE); // 서버가 전송해주는 연산결과의 저장과정, 수신할 데이터의 크기가 4바이트이기 때문에 이렇게 한번에 read 함수호출로 충분히 수신이 가능.
+    read(sock, &result, RLT_SIZE); // 서버가 전송해주는 연산결과의 저장과정, 수신할 데이터의 크기가 4바이트이기 때문에 이렇게 한번에 read 함수호출로 충분히 수신이 가능.
 
     printf("Operation result: %d \n", result);
     close(sock);
