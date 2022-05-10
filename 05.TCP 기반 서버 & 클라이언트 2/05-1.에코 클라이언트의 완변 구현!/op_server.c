@@ -80,10 +80,10 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-int calculate(int opnum, int opnds[], char oprator)
+int calculate(int opnum, int opnds[], char op)
 {
     int result = opnds[0],i;
-    switch (oprator)
+    switch (op)
     {
     case '+':
         for (i = 1; i < opnum; i++) 
@@ -114,4 +114,4 @@ void error_handling(char *message)
     fputs(message, stderr);
     fputc('\n', stderr);
     exit(1);
-} 
+}
