@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     }
     printf("Socket type one: %d \n", sock_type);
 
-// 소켓의 타입정보를 얻고있음. TCP 소켓이라면 SOCK_STREAM의 상수 값인 1을 얻게 될 것이고, UDP 쏘콌이라면 SOCK_DGRAM의 상수 값인 2를 얻게 됨.
+// 소켓의 타입정보를 얻고있음. TCP 소켓이라면 SOCK_STREAM의 상수 값인 1을 얻게 될 것이고, UDP 소켓이라면 SOCK_DGRAM의 상수 값인 2를 얻게 됨.
     state = getsockopt(udp_sock, SOL_SOCKET, SO_TYPE, (void*)&sock_type, &optlen);
     if (state)
     {
