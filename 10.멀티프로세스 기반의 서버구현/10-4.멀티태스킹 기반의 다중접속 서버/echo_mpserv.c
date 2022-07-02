@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 // 32~35행 : 좀비 프로세스의 생성을 막기 위한 코드 구성
     act.sa_handler = read_childproc;
     sigemptyset(&act.sa_mask);
-    act.sa_flag = 0;
+    act.sa_flags = 0;
     state = sigaction(SIGCHLD, &act, 0);
     serv_sock = socket(PF_INET, SOCK_STREAM, 0);
     memset(&serv_adr, 0, sizeof(serv_adr));
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
         error_handling("bind() error");
     }
     if (listen(serv_sock, 5) == -1){
-        error_handling("listen() error")
+        error_handling("listen() error");
     }
 
     while(1)
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
         else{
 // 54행에서 accept 함수호출을 통해서 만들어진 소켓의 파일 디스크립터가 자식 프로세스에게 복사되었으니, 서버는 자신이
 // 소유하고 있는 파일 디스크립터를 소멸 시켜야함.
-            close(clnt_scok);
+            close(clnt_sock);
         }
     }
     close(serv_sock);
